@@ -144,7 +144,7 @@
       version: [1.1.2]
     netcdf-c:
       version: [4.8.1]
-      variants: +dap +mpi +parallel-netcdf
+      variants: +v2 +dap +mpi +parallel-netcdf
     netcdf-cxx4:
       version: [4.3.1]
     netcdf-fortran:
