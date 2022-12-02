@@ -61,7 +61,7 @@ jobs:
     strategy:
       matrix:
         compiler-mpi: [ {compiler: intel, mpi: intel-oneapi-mpi}, {compiler: gcc@9, mpi: mpich@4} ]
-        template: [skylab-dev, ufs-weather-model, ufs-srw-dev]
+        template: [skylab-dev, ufs-weather-model-static, ufs-srw-dev]
     runs-on: ubuntu-20.04
     steps:
 
