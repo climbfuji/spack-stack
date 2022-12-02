@@ -15,5 +15,5 @@ spack:
   include: []
 
   specs:
-    - ufs-weather-model-env~shared~debug
-    - ufs-weather-model-env~shared+debug
+    - ufs-weather-model-env~debug
+    - ufs-weather-model-env+debug
