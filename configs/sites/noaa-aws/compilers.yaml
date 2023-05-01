@@ -15,6 +15,7 @@ compilers:
       prepend_path:
         PATH: '/apps/gnu/gcc-9.2.0/bin'
         LD_LIBRARY_PATH: '/apps/gnu/gcc-9.2.0/lib64'
+        CPATH: '/apps/gnu/gcc-9.2.0/include'
     extra_rpaths: []
 - compiler:
     spec: intel@18.0.5
