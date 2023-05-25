@@ -7,9 +7,9 @@ Known Issues
 General
 ==============================
 
-1. First call to ``spack concretize`` fails with ``[Errno 2] No such file or directory: ... .json``
+1. ``gcc@13`` (``gcc``, ``g++``, ``gfortran``) not yet supported
 
-   This can happen when ``spack concretize`` is called the very first time in a new spack-stack clone, during which the boostrapping (installation of ``clingo``) is done first. Simply rerunning the command should solve the problem.
+   Our software stack doesn't build with ``gcc@13`` yet. This is also true when combining the LLVM or Apple ``clang`` compiler with ``gfortran@13``.
 
 2. Build errors with Python 3.10
 
@@ -28,6 +28,18 @@ NASA Discover
 1. Timeout when fetching software during spack installs.
 
    Discover's connection to the outside world can be very slow and spack sometimes aborts with fetch timeouts. Try again until it works, sometimes have to wait for a bit.
+
+==============================
+NCAR-Wyoming Casper
+==============================
+
+1. ``py-scipy`` is missing the Pythran backend, because older versions of ``py-pythran`` (up to ``0.11.x``) cause compilation errors in ``py-scipy`` for all Intel compilers, and newer ``py-pythran`` versions (``0.12.x`` and later) do not build with the old Intel compiler used on Casper.
+
+==============================
+NCAR-Wyoming Cheyenne
+==============================
+
+1. ``py-scipy`` is missing the Pythran backend, because older versions of ``py-pythran`` (up to ``0.11.x``) cause compilation errors in ``py-scipy`` for all Intel compilers, and newer ``py-pythran`` versions (``0.12.x`` and later) do not build with the old Intel compiler used on Cheyenne.
 
 ==============================
 NOAA Parallel Works
@@ -88,6 +100,3 @@ macOS
 5. Errors such as ``Symbol not found: __cg_png_create_info_struct``
 
    Can happen when trying to use the raster plotting scripts in ``fv3-jedi-tools``. In that case, exporting ``DYLD_LIBRARY_PATH=/usr/lib/:$DYLD_LIBRARY_PATH`` can help. If ``git`` commands fail after this, you might need to verify where ``which git`` points to (Homebrew vs module) and unload the ``git`` module.
-
-6. Error building MET 10.1.1.20220419 build error on macOS Monterey 12.1
-   See https://github.com/NOAA-EMC/spack-stack/issues/316. Note that this error does not occur in the macOS CI tests.

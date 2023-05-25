@@ -5,15 +5,18 @@ spack:
   view: false
   include: []
 
-  specs:
-    # Virtual environment packages
-    - jedi-ewok-env
-    - jedi-fv3-env
-    - jedi-mpas-env
-    - jedi-ufs-env
-    - jedi-um-env
-    - soca-env
+  definitions:
+  - compilers: ['%aocc', '%apple-clang', '%gcc', '%intel']
+  - packages:
+      - ewok-env@unified-dev
+      - jedi-fv3-env@unified-dev
+      - jedi-mpas-env@unified-dev
+      - jedi-neptune-env@unified-dev
+      - jedi-ufs-env@unified-dev
+      - jedi-um-env@unified-dev
+      - soca-env@unified-dev
 
+<<<<<<< HEAD
     # Individual packages
     - bacio@2.4.1
     # Do not request specific version of bison - this leads to duplicate packages being built
@@ -86,3 +89,9 @@ spack:
     - w3nco@2.4.1
     - yafyaml@0.5.1
     - zlib@1.2.13
+=======
+  specs:
+    - matrix:
+      - [$packages]
+      - [$compilers]
+>>>>>>> 042d9a0e32f40d870b4f44f6b0b2c83d4f58bfd3
