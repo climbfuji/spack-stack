@@ -6,7 +6,7 @@ spack:
   include: []
 
   definitions:
-  - compilers: ['%aocc', '%apple-clang', '%gcc', '%intel']
+  - compilers: ['%aocc', '%apple-clang', '%gcc', '%intel', '%oneapi']
   - packages:
       - global-workflow-env
       - gmao-swell-env

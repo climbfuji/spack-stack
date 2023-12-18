@@ -6,7 +6,7 @@ spack:
   include: []
 
   definitions:
-  - compilers: ['%aocc', '%apple-clang', '%gcc', '%intel']
+  - compilers: ['%aocc', '%apple-clang', '%gcc', '%intel', '%oneapi']
   - packages:
       - ewok-env +ecflow +cylc
       - jedi-fv3-env
