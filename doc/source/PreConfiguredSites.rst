@@ -252,7 +252,7 @@ With Intel, the following is required for building new spack environments and fo
    module purge
 
    module load slurm
-   module load intel/compiler/2022.0.2
+   module load intel/compiler/2023.1.0
    module load penguin/openmpi/4.1.5rc2/intel
 
    module use /p/app/projects/NEPTUNE/spack-stack/modulefiles
