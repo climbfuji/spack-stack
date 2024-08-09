@@ -1,0 +1,16 @@
+spack:
+  concretizer:
+    unify: when_possible
+
+  view: false
+  include: []
+
+  definitions:
+  - compilers: ['%aocc', '%apple-clang', '%cce', '%clang', '%gcc', '%intel', 'nvhpc', '%oneapi']
+  - packages:
+      - neptune-benchmark-env ^esmf@8.7.0b11 snapshot=b11
+
+  specs:
+    - matrix:
+      - [$packages]
+      - [$compilers]
