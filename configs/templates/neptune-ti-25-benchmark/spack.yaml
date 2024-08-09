@@ -8,7 +8,8 @@ spack:
   definitions:
   - compilers: ['%aocc', '%apple-clang', '%cce', '%clang', '%gcc', '%intel', 'nvhpc', '%oneapi']
   - packages:
-      - neptune-benchmark-env ^esmf@8.7.0b11 snapshot=b11
+      # Update to esmf@8.7.0b11 snapshot=b11 once available in spack
+      - neptune-benchmark-env ^esmf@8.7.0b04 snapshot=b04
 
   specs:
     - matrix:
