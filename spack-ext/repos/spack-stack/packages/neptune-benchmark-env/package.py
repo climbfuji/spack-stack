@@ -19,8 +19,8 @@ class NeptuneBenchmarkEnv(BundlePackage):
 
     version("1.5.0")
 
-    conflicts("platform=darwin", "Only supported on 'linux' and 'cray'")
-    conflicts("platform=windows", "Only supported on 'linux' and 'cray'")
+    conflicts("platform=darwin", msg="Only supported on 'linux' and 'cray'")
+    conflicts("platform=windows", msg="Only supported on 'linux' and 'cray'")
 
     # Basic utilities
     depends_on("cmake", type="run")
