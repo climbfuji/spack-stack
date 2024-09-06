@@ -55,7 +55,7 @@ packages:
   esmf:
     require:
       - '~xerces ~pnetcdf +shared +external-parallelio'
-      - any_of: ['@=8.6.1 snapshot=none', '@=8.7.0b11 snapshot=b11']
+      - any_of: ['@=8.6.1 snapshot=none +debug +extradebug', '@=8.7.0b11 snapshot=b11 +debug +extradebug']
       - any_of: ['fflags="-fp-model precise" cxxflags="-fp-model precise"']
         when: "%intel"
         message: "Extra ESMF compile options for Intel"
@@ -111,7 +111,7 @@ packages:
   hdf:
     require: '@4.2.15 +external-xdr ~fortran ~netcdf'
   hdf5:
-    require: '@1.14.3 +hl +fortran +mpi +threadsafe ~szip'
+    require: '@1.14.3 +hl +fortran +mpi +threadsafe ~szip build_type=Debug +instrument +trace'
   # Newer versions of hdf-eos2 require manual downloading, avoid
   hdf-eos2:
     require: '@2.20v1.00'
