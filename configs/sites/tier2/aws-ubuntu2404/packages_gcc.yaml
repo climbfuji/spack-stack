@@ -1,5 +1,15 @@
 packages:
-  all:
-    compiler:: [gcc@11.4.0]
-    providers:
-      mpi:: [openmpi@5.0.6]
+  gcc:
+    buildable: false
+    externals:
+    - spec: gcc@13.3.0 languages:='c,c++,fortran'
+      prefix: /usr
+      extra_attributes:
+        compilers:
+          c: /usr/bin/gcc
+          cxx: /usr/bin/g++
+          fortran: /usr/bin/gfortran
+  gcc-runtime:
+    externals:
+    - spec: gcc-runtime@13.3.0
+      prefix: /usr

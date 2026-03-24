@@ -1,0 +1,64 @@
+packages:
+  all:
+    require:
+    - any_of: ['%intel-oneapi-compilers@=2025.2.1']
+      when: '%intel-oneapi-compilers'
+    - any_of: ['%gcc@=13.3.1']
+      when: '%gcc'
+  mpi:
+    buildable: False
+    require:
+      - cray-mpich@8.1.32
+  cray-mpich:
+    buildable: False
+    externals:
+    - spec: cray-mpich@8.1.32
+      prefix: /opt/cray/pe/mpich/8.1.32/ofi/intel/2022.1
+      modules:
+      - PrgEnv-intel/8.6.0
+      - cray-mpich/8.1.32
+      - libfabric/1.22.0
+      - craype-network-ofi
+  intel-oneapi-compilers:
+    buildable: False
+    externals:
+    - spec: intel-oneapi-compilers@2025.2.1
+      prefix: /opt/intel/oneapi
+      modules:
+        - PrgEnv-intel/8.6.0
+        - intel/2025.2
+      extra_attributes:
+        compilers:
+          c: /opt/intel/oneapi/compiler/2025.2/bin/icx
+          cxx: /opt/intel/oneapi/compiler/2025.2/bin/icpx
+          fortran: /opt/intel/oneapi/compiler/2025.2/bin/ifx
+        environment:
+          prepend_path:
+            LD_LIBRARY_PATH: '/opt/cray/libfabric/1.22.0/lib64:/opt/cray/pe/libsci/25.03.0/INTEL/2025.0/x86_64/lib:/usr/lib64/gcc/x86_64-suse-linux/12:/opt/intel/oneapi/compiler/2025.2/lib:/opt/cray/pe/mpich/8.1.32/ofi/intel/2022.1/lib'
+          set:
+            # OpenSUSE on Gaea C6 sets CONFIG_SITE so
+            # Automake-based builds are installed in lib64
+            # which confuses some packages.
+            CONFIG_SITE: ''
+  intel-oneapi-mkl:
+    buildable: False
+    externals:
+    - spec: intel-oneapi-mkl@2025.2
+      prefix: /opt/intel/oneapi
+  gcc:
+    buildable: False
+    externals:
+    - spec: gcc@13.3.1 languages:='c,c++'
+      prefix: /opt/cray/pe/gcc-native/13/bin
+      modules:
+        - PrgEnv-gnu/8.6.0
+        - gcc-native/13.2
+      extra_attributes:
+        compilers:
+          c: /usr/bin/gcc-13
+          cxx: /usr/bin/g++-13
+          fortran: /usr/bin/gfortran-13
+        environment: 
+          set:
+            PE_GCC_EXTERNAL: native
+            #FI_CXI_RX_MATCH_MODE: hybrid

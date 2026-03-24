@@ -1,11 +1,6 @@
 packages:
   # Modification of common packages
 
-  # Pin py-torch to 2.5.1 to avoid build errors with 2.6.0
-  py-torch:
-    require:
-        - '@2.5.1'
-
   # All other packages listed alphabetically
   autoconf:
     externals:
@@ -14,6 +9,10 @@ packages:
   automake:
     externals:
     - spec: automake@1.16.2
+      prefix: /usr
+  bash:
+    externals:
+    - spec: bash@5.1.8
       prefix: /usr
   binutils:
     externals:
@@ -48,17 +47,15 @@ packages:
     - spec: gettext@0.21
       prefix: /usr
   git:
+    buildable: False
     externals:
     - spec: git@2.43.0~tcltk
       prefix: /usr
   git-lfs:
+    buildable: False
     externals:
     - spec: git-lfs@3.4.1
       prefix: /usr
-  #gmake:
-  #  externals:
-  #  - spec: gmake@4.3
-  #    prefix: /usr
   grep:
     externals:
     - spec: grep@3.6
