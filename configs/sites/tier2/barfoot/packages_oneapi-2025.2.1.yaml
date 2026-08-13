@@ -29,7 +29,7 @@ packages:
     buildable: false
     externals:
     - spec: gcc@14.3.0 languages:='c,c++'
-      prefix: /usr
+      prefix: /opt/cray/pe/gcc-native/14
       modules:
       - PrgEnv-gnu/8.7.0
       - gcc-native/14

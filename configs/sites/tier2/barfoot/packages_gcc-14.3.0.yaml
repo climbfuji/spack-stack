@@ -6,15 +6,15 @@ packages:
   mpi:
     buildable: false
     require:
-    - cray-mpich@8.1.32
+    - cray-mpich@9.1.0
   gcc:
     buildable: false
     externals:
     - spec: gcc@14.3.0 languages:='c,c++,fortran'
-      prefix: /usr
+      prefix: /opt/cray/pe/gcc-native/14
       modules:
-      - PrgEnv-gnu/8.6.0
-      - gcc-native/14.2
+      - PrgEnv-gnu/8.7.0
+      - gcc-native/14
       extra_attributes:
         compilers:
           c: /opt/cray/pe/gcc-native/14/bin/gcc
@@ -27,11 +27,11 @@ packages:
   cray-mpich:
     buildable: false
     externals:
-    - spec: cray-mpich@8.1.32
-      prefix: /opt/cray/pe/mpich/8.1.32/ofi/GNU/12.3
+    - spec: cray-mpich@9.1.0
+      prefix: /opt/cray/pe/mpich/9.1.0/ofi/intel/2022.1
       modules:
-      - cray-mpich/8.1.32
-      extra_attributes:
-        environment:
-          prepend_path:
-            CMAKE_PREFIX_PATH: /p/app/projects/NEPTUNE/spack-stack/cmake-findmpi
+      - cray-mpich/9.1.0
+      #extra_attributes:
+      #  environment:
+      #    prepend_path:
+      #      CMAKE_PREFIX_PATH: /p/app/projects/NEPTUNE/spack-stack/cmake-findmpi

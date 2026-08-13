@@ -15,6 +15,14 @@ packages:
     externals:
     - spec: automake@1.15.1
       prefix: /usr
+  bash:
+    externals:
+    - spec: bash@4.4.23
+      prefix: /usr
+  binutils:
+    externals:
+    - spec: binutils@2.45.0~gold+headers
+      prefix: /usr
   bison:
     externals:
     - spec: bison@3.0.4
@@ -26,10 +34,6 @@ packages:
   coreutils:
     externals:
     - spec: coreutils@8.32
-      prefix: /usr
-  curl:
-    externals:
-    - spec: curl@8.14.1+gssapi+ldap+nghttp2
       prefix: /usr
   diffutils:
     externals:
@@ -52,12 +56,17 @@ packages:
     - spec: gettext@0.21.1
       prefix: /usr
   git:
+    buildable: False
     externals:
     - spec: git@2.51.0+tcltk
       prefix: /usr
   gmake:
     externals:
     - spec: gmake@4.2.1
+      prefix: /usr
+  grep:
+    externals:
+    - spec: grep@3.11
       prefix: /usr
   groff:
     externals:
@@ -74,12 +83,6 @@ packages:
   openssh:
     externals:
     - spec: openssh@9.6p1
-      prefix: /usr
-    - spec: openssh@10.3p1a
-      prefix: /usr/local/krb5
-  openssl:
-    externals:
-    - spec: openssl@3.2.3
       prefix: /usr
   perl:
     externals:
@@ -101,8 +104,12 @@ packages:
     externals:
     - spec: tar@1.34
       prefix: /usr
+  wget:
+    externals:
+    - spec: wget@1.24.5
+      prefix: /usr
   zlib:
+    buildable: False
     externals:
     - spec: zlib@1.2.13
       prefix: /usr
-
