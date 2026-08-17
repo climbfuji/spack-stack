@@ -28,7 +28,7 @@ packages:
     buildable: false
     externals:
     - spec: cray-mpich@9.1.0
-      prefix: /opt/cray/pe/mpich/9.1.0/ofi/intel/2022.1
+      prefix: /opt/cray/pe/mpich/9.1.0/ofi/gnu/12.3
       modules:
       - cray-mpich/9.1.0
       #extra_attributes:
