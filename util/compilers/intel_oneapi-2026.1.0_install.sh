@@ -4,8 +4,8 @@
 # in the Intel auto-generated modulefiles (bug filed with Intel to correct
 # upstream) on non-Cray systems, or to create a single module on Cray systems.
 
-# Missing: patching of libirc.so and libimf.so to add the missing symbolic
-# links to libc.so.6 and libm.so.6.
+# Documentation, support, what's included, ...
+# https://www.intel.com/content/www/us/en/developer/tools/oneapi/oneapi-toolkit.html
 
 set -eu
 
@@ -90,7 +90,7 @@ EOF
 
 else
   cd ${ONEAPI_INSTALL_DIR}
-  ./modulefiles-setup.sh --output-dir=${ONEAPI_INSTALL_DIR}/modulefiles --ignore-latest 2>&1 | tee log.modulefiles
+  ./modulefiles-setup.sh --output-dir=${ONEAPI_INSTALL_DIR}/modulefiles --ignore-latest --force 2>&1 | tee log.modulefiles
   # Fix non-ascii symbols in Intel modulefiles; must follow links
   for file in `find ./modulefiles -type l`; do
     echo $file
