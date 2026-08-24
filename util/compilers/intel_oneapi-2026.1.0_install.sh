@@ -83,7 +83,7 @@ proc ModulesHelp { } {
     global INTEL_CURPATH
 }
 
-# This module was produced with dom-gen 0.0.1
+# This module was produced with the spack-stack Intel oneAPI installer wrapper
 
 module-whatis   "Intel oneAPI compiler"
 EOF
