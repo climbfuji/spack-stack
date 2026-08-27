@@ -1,7 +1,7 @@
 packages:
   all:
     require:
-    - any_of: ['%gcc@=14.3.0']
+    - any_of: ['%gcc@=13.3.1']
       when: '%gcc'
   mpi:
     buildable: false
@@ -10,16 +10,15 @@ packages:
   gcc:
     buildable: false
     externals:
-    - spec: gcc@14.3.0 languages:='c,c++,fortran'
-      prefix: /glade/u/apps/common/25.10/spack/opt/spack/gcc/14.3.0/nw2m
+    - spec: gcc@13.3.1 languages:='c,c++,fortran'
+      prefix: /usr
       modules:
       - ncarenv/25.10
-      - gcc/14.3.0
       extra_attributes:
         compilers:
-          c: /glade/u/apps/common/25.10/spack/opt/spack/gcc/14.3.0/nw2m/bin/gcc
-          cxx: /glade/u/apps/common/25.10/spack/opt/spack/gcc/14.3.0/nw2m/bin/g++
-          fortran: /glade/u/apps/common/25.10/spack/opt/spack/gcc/14.3.0/nw2m/bin/gfortran
+          c: /usr/bin/gcc-13
+          cxx: /usr/bin/g++-13
+          fortran: /usr/bin/gfortran-13
         environment:
           set:
             # https://github.com/JCSDA/spack-stack/issues/957
