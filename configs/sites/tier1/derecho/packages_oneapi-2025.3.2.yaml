@@ -3,7 +3,7 @@ packages:
     require:
     - any_of: ['%intel-oneapi-compilers@=2025.3.2']
       when: '%intel-oneapi-compilers'
-    - any_of: ['%gcc@=13.3.1']
+    - any_of: ['%gcc@=14.3.0']
       when: '%gcc'
   mpi:
     buildable: false
@@ -15,7 +15,7 @@ packages:
     - spec: intel-oneapi-compilers@2025.3.2
       prefix: /glade/u/apps/common/25.10/spack/opt/spack/intel-oneapi-compilers/2025.3.2/snvt
       modules:
-      - ncarenv/25.10
+      - ncarenv-basic/25.10
       - intel/2025.3.2
       extra_attributes:
         compilers:
@@ -28,30 +28,42 @@ packages:
             FI_CXI_RX_MATCH_MODE: hybrid
             # https://github.com/JCSDA/spack-stack/issues/1012
             I_MPI_EXTRA_FILESYSTEM: ON
+        environment:
+          remove_path:
+            LIBRARY_PATH: /glade/u/apps/common/25.10/spack/opt/spack/gcc/12.5.0/hsbg/lib64
+            PATH: /glade/u/apps/common/25.10/spack/opt/spack/gcc/12.5.0/hsbg/bin
   gcc:
     buildable: false
     externals:
-    - spec: gcc@13.3.1 languages:='c,c++'
-      prefix: /usr
+    - spec: gcc@14.3.0 languages:='c,c++'
+      prefix: /glade/u/apps/common/25.10/spack/opt/spack/gcc/14.3.0/nw2m
       modules:
-      - ncarenv/25.10
+      - ncarenv-basic/25.10
+      - gcc/14.3.0
       extra_attributes:
         compilers:
-          c: /usr/bin/gcc-13
-          cxx: /usr/bin/g++-13
-          fortran: /usr/bin/gfortran-13
+          c: /glade/u/apps/common/25.10/spack/opt/spack/gcc/14.3.0/nw2m/bin/gcc
+          cxx: /glade/u/apps/common/25.10/spack/opt/spack/gcc/14.3.0/nw2m/bin/g++
+          fortran: /glade/u/apps/common/25.10/spack/opt/spack/gcc/14.3.0/nw2m/bin/gfortran
         environment:
-          set:
-            # https://github.com/JCSDA/spack-stack/issues/957
-            FI_CXI_RX_MATCH_MODE: hybrid
+          remove_path:
+            LIBRARY_PATH: /glade/u/apps/common/25.10/spack/opt/spack/gcc/12.5.0/hsbg/lib64
+            PATH: /glade/u/apps/common/25.10/spack/opt/spack/gcc/12.5.0/hsbg/bin
   cray-mpich:
     buildable: false
     externals:
     - spec: cray-mpich@8.1.32 +wrappers
       prefix: /opt/cray/pe/mpich/8.1.32/ofi/intel/2022.1
       modules:
+      - ncarenv-basic/25.10
+      - intel/2025.3.2
       - cray-mpich/8.1.32
       - libfabric/1.22.0
+      extra_attributes:
+        environment:
+          remove_path:
+            LIBRARY_PATH: /glade/u/apps/common/25.10/spack/opt/spack/gcc/12.5.0/hsbg/lib64
+            PATH: /glade/u/apps/common/25.10/spack/opt/spack/gcc/12.5.0/hsbg/bin
   intel-oneapi-mkl:
     buildable: false
     externals:

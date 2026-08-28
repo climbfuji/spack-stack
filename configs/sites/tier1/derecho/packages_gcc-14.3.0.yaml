@@ -27,7 +27,6 @@ packages:
           remove_path:
             LIBRARY_PATH: /glade/u/apps/common/25.10/spack/opt/spack/gcc/12.5.0/hsbg/lib64
             PATH: /glade/u/apps/common/25.10/spack/opt/spack/gcc/12.5.0/hsbg/bin
-
   cray-mpich:
     buildable: false
     externals:
